@@ -6,7 +6,7 @@ public class InputParserTests {
 
     [Fact]
     public void Parse_returns_a_collection_of_stacks() {
-        var input = "1000\n2000\n3000\n\n2000\n5000";
+        var input = "1000\n2000\n3000\n\r\n2000\n5000\n";
 
         var inputParser = new InputParser();
 

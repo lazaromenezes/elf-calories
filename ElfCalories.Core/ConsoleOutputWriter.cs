@@ -1,6 +1,6 @@
 namespace ElfCalories.Core;
 
-class ConsoleOutputWriter : IOutputWriter
+public class ConsoleOutputWriter : IOutputWriter
 {
     public void Write(string output)
     {
