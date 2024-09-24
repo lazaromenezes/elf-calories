@@ -1,29 +1,19 @@
-﻿
-using ElfCalories.Core;
+﻿namespace ElfCalories.Core;
 
-namespace ElfCalorires.Core;
+public interface ICaloriesSummer {
+    int SumCalories(int[] caloriesToSum, int amount);
+}
 
-public class CaloriesSummer
+public class CaloriesSummer() : ICaloriesSummer
 {
-    private IReducedListProvider listProvider;
-
-    public CaloriesSummer(IReducedListProvider listProvider)
+    public int SumCalories(int[] caloriesToSum, int amount)
     {
-        this.listProvider = listProvider;
-    }
-
-    public int SumCalories(){
-        return SumCalories(listProvider.GetList());
-    }
-
-     private int SumCalories(int[] caloriesToSum)
-    {
-        if (!caloriesToSum.Any())
+        if (caloriesToSum.Length == 0)
             throw new ArgumentException("List can't be empty");
 
-        if(caloriesToSum.Any(c => c < 0))
+        if (caloriesToSum.Any(c => c < 0))
             throw new ArgumentException("List can't contain negative numbers");
 
-        return caloriesToSum.OrderDescending().Take(3).Sum();
+        return caloriesToSum.OrderDescending().Take(amount).Sum();
     }
 }

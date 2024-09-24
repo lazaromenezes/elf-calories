@@ -1,8 +1,6 @@
-using System;
-
 namespace ElfCalories.Core;
 
-public interface IReducedListProvider
+public interface IStackReducer
 {
-    int[] GetList();
+    int[] Reduce(IEnumerable<int[]> stacks);
 }
