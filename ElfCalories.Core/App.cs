@@ -1,20 +1,11 @@
-
 namespace ElfCalories.Core;
 
-public class App
+public class App(AppArgs arguments, IOutputWriter outputWritter, IFileInputReader fileInputReader, ICaloriesSummer caloriesSummer)
 {
-    private AppArgs arguments;
-    private IOutputWriter outputWritter;
-    private readonly IFileInputReader fileInputReader;
-    private readonly ICaloriesSummer caloriesSummer;
-
-    public App(AppArgs arguments, IOutputWriter outputWritter, IFileInputReader fileInputReader, ICaloriesSummer caloriesSummer)
-    {
-        this.arguments = arguments;
-        this.outputWritter = outputWritter;
-        this.fileInputReader = fileInputReader;
-        this.caloriesSummer = caloriesSummer;
-    }
+    private readonly AppArgs arguments = arguments;
+    private readonly IOutputWriter outputWritter = outputWritter;
+    private readonly IFileInputReader fileInputReader = fileInputReader;
+    private readonly ICaloriesSummer caloriesSummer = caloriesSummer;
 
     public void Run()
     {
